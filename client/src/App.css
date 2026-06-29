@@ -1,0 +1,567 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 18px 32px;
+  background: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links button {
+  padding: 9px 18px;
+  border: none;
+  background: #dc2626;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Auth */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 360px;
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.auth-input {
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.auth-btn {
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background: #1d4ed8;
+}
+
+.error-msg {
+  background: #7f1d1d;
+  color: #fecaca;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0;
+}
+
+.auth-link {
+  text-align: center;
+  color: #d1d5db;
+}
+
+.auth-link a {
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+/* Game */
+.game-container {
+  min-height: calc(100vh - 76px);
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-card {
+  width: 100%;
+  max-width: 760px;
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.game-card h1 {
+  margin-top: 0;
+  font-size: 34px;
+}
+
+.mode-buttons,
+.difficulty-buttons,
+.player-inputs,
+.game-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.mode-buttons {
+  margin: 18px 0;
+}
+
+.difficulty-buttons {
+  margin: 12px 0;
+}
+
+.player-inputs {
+  margin: 15px 0;
+}
+
+.mode-buttons button,
+.difficulty-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.mode-buttons button {
+  background: #2563eb;
+}
+
+.difficulty-buttons button {
+  background: #374151;
+}
+
+.active-mode {
+  background: #22c55e !important;
+}
+
+.active-difficulty {
+  background: #f59e0b !important;
+}
+
+.mode-text {
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+.player-inputs input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.player-inputs input:disabled {
+  opacity: 0.7;
+}
+
+.game-layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.game-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 105px);
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.cell {
+  width: 105px;
+  height: 105px;
+  font-size: 42px;
+  font-weight: bold;
+  border: none;
+  border-radius: 18px;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cell:hover {
+  background: #374151;
+}
+
+.winning-cell {
+  background: #22c55e !important;
+  transform: scale(1.05);
+}
+
+.scoreboard {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 120px;
+  background: #111827;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.score-box {
+  background: #1f2937;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.score-box:last-child {
+  margin-bottom: 0;
+}
+
+.score-box h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.score-box p {
+  margin: 5px 0 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.winner-text {
+  font-size: 28px;
+  margin: 18px 0;
+  color: #facc15;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+}
+
+.turn-text {
+  font-size: 26px;
+  margin: 18px 0;
+}
+
+.game-actions {
+  margin-top: 18px;
+}
+
+.play-again-btn,
+.reset-btn {
+  min-width: 140px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.play-again-btn {
+  background: #22c55e;
+}
+
+.reset-btn {
+  background: #2563eb;
+}
+
+/* Common Pages */
+.page-container {
+  min-height: calc(100vh - 76px);
+  padding: 70px 30px;
+  text-align: center;
+}
+
+.page-container h1 {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: #9ca3af;
+  margin-bottom: 35px;
+}
+
+/* Dashboard */
+.stats-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-box {
+  background: #1f2937;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.stat-box span {
+  color: #9ca3af;
+  font-size: 15px;
+}
+
+.stat-box h2 {
+  font-size: 42px;
+  margin: 12px 0 0;
+}
+
+.stat-box.win {
+  border-top: 4px solid #22c55e;
+}
+
+.stat-box.loss {
+  border-top: 4px solid #ef4444;
+}
+
+.stat-box.draw {
+  border-top: 4px solid #f59e0b;
+}
+
+/* Leaderboard */
+.leaderboard-box {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.leader-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border-bottom: 1px solid #374151;
+}
+
+.leader-row:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  background: #2563eb;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.leader-info {
+  flex: 1;
+  text-align: left;
+}
+
+.leader-info h3 {
+  margin: 0;
+}
+
+.leader-info p {
+  margin: 5px 0 0;
+  color: #9ca3af;
+}
+
+.leader-wins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leader-wins strong {
+  font-size: 26px;
+}
+
+.leader-wins span {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* History */
+.history-box {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border-bottom: 1px solid #374151;
+  text-align: left;
+}
+
+.history-row:last-child {
+  border-bottom: none;
+}
+
+.history-row h3 {
+  margin: 0 0 8px;
+}
+
+.history-row p {
+  margin: 4px 0;
+  color: #d1d5db;
+}
+
+.mini-board {
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+  gap: 5px;
+}
+
+.mini-board span {
+  width: 28px;
+  height: 28px;
+  background: #111827;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scoreboard {
+    position: static;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .score-box {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .game-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-container {
+    padding: 40px 16px;
+  }
+
+  .page-container h1 {
+    font-size: 30px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    padding: 22px 16px;
+  }
+
+  .mode-buttons,
+  .difficulty-buttons,
+  .player-inputs,
+  .game-actions {
+    flex-direction: column;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 82px);
+    gap: 10px;
+  }
+
+  .cell {
+    width: 82px;
+    height: 82px;
+    font-size: 34px;
+  }
+
+  .leaderboard-box,
+  .history-box {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .leader-row,
+  .history-row {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .leader-info {
+    text-align: center;
+  }
+
+  .auth-card {
+    width: 100%;
+  }
+}
