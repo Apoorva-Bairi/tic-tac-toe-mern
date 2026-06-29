@@ -8,17 +8,18 @@ connectDB();
 
 const app = express();
 
-const authRoutes = require("./routes/authRoutes");
-const gameRoutes = require("./routes/gameRoutes");
-
 app.use(
   cors({
     origin: "https://tic-tac-toe-mern.netlify.app",
     credentials: true,
   })
 );
+
 app.use(express.json());
-console.log("Auth routes loaded");
+
+const authRoutes = require("./routes/authRoutes");
+const gameRoutes = require("./routes/gameRoutes");
+
 app.use("/api/auth", authRoutes);
 app.use("/api/game", gameRoutes);
 
